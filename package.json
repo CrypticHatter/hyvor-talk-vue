@@ -1,6 +1,6 @@
 {
   "name": "hyvor-talk-vue",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "",
   "main": "dist/hyvor-talk-vue.ssr.js",
   "browser": "dist/hyvor-talk-vue.esm.js",

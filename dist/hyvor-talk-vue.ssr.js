@@ -7,14 +7,17 @@ function _arrayWithHoles(arr) {
 }
 
 function _iterableToArrayLimit(arr, i) {
-  if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return;
+  var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"];
+
+  if (_i == null) return;
   var _arr = [];
   var _n = true;
   var _d = false;
-  var _e = undefined;
+
+  var _s, _e;
 
   try {
-    for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) {
+    for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) {
       _arr.push(_s.value);
 
       if (i && _arr.length === i) break;
@@ -64,7 +67,7 @@ function removeScript(id) {
   if (id) {
     script.parentElement.removeChild(script);
   }
-}var script = /*#__PURE__*/vue.defineComponent({
+}var script$1 = /*#__PURE__*/vue.defineComponent({
   name: 'Embed',
   // vue component name
   props: {
@@ -130,12 +133,12 @@ function removeScript(id) {
     this.setVariables();
     this.checkScript();
   }
-});var _hoisted_1 = {
+});var _hoisted_1$1 = {
   id: "hyvor-talk-view"
 };
-function render(_ctx, _cache, $props, $setup, $data, $options) {
-  return vue.openBlock(), vue.createBlock("div", _hoisted_1);
-}script.render = render;var script$1 = /*#__PURE__*/vue.defineComponent({
+function render$1(_ctx, _cache, $props, $setup, $data, $options) {
+  return vue.openBlock(), vue.createElementBlock("div", _hoisted_1$1);
+}script$1.render = render$1;var script = /*#__PURE__*/vue.defineComponent({
   name: 'CommentCount',
   // vue component name
   props: {
@@ -169,13 +172,14 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
     addScript('//talk.hyvor.com/web-api/count/', scriptId);
   }
-});function render$1(_ctx, _cache, $props, $setup, $data, $options) {
-  return vue.openBlock(), vue.createBlock("span", {
+});var _hoisted_1 = ["data-talk-id", "mode"];
+function render(_ctx, _cache, $props, $setup, $data, $options) {
+  return vue.openBlock(), vue.createElementBlock("span", {
     "data-talk-id": _ctx.id,
     mode: _ctx.mode
-  }, null, 8, ["data-talk-id", "mode"]);
-}script$1.render = render$1;/* eslint-disable import/prefer-default-export */var components=/*#__PURE__*/Object.freeze({__proto__:null,Embed: script,CommentCount: script$1});var install = function installHyvorTalkVue(app) {
-  Object.entries(components).forEach(function (_ref) {
+  }, null, 8, _hoisted_1);
+}script.render = render;/* eslint-disable import/prefer-default-export */var components$1=/*#__PURE__*/Object.freeze({__proto__:null,Embed:script$1,CommentCount:script});var install = function installHyvorTalkVue(app) {
+  Object.entries(components$1).forEach(function (_ref) {
     var _ref2 = _slicedToArray(_ref, 2),
         componentName = _ref2[0],
         component = _ref2[1];
@@ -183,10 +187,10 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     app.component(componentName, component);
   });
 }; // Create module definition for Vue.use()
-var components$1=/*#__PURE__*/Object.freeze({__proto__:null,'default': install,Embed: script,CommentCount: script$1});// only expose one global var, with component exports exposed as properties of
+var components=/*#__PURE__*/Object.freeze({__proto__:null,'default':install,Embed:script$1,CommentCount:script});// only expose one global var, with component exports exposed as properties of
 // that global var (eg. plugin.component)
 
-Object.entries(components$1).forEach(function (_ref) {
+Object.entries(components).forEach(function (_ref) {
   var _ref2 = _slicedToArray(_ref, 2),
       componentName = _ref2[0],
       component = _ref2[1];

@@ -1,4 +1,4 @@
-import { defineComponent, openBlock, createBlock } from 'vue';
+import { defineComponent, openBlock, createElementBlock } from 'vue';
 
 function addScript(src, id) {
   var script = document.createElement('script');
@@ -14,7 +14,7 @@ function removeScript(id) {
   }
 }
 
-var script = /*#__PURE__*/defineComponent({
+var script$1 = /*#__PURE__*/defineComponent({
   name: 'Embed',
   // vue component name
   props: {
@@ -86,16 +86,16 @@ var script = /*#__PURE__*/defineComponent({
 
 });
 
-const _hoisted_1 = {
+const _hoisted_1$1 = {
   id: "hyvor-talk-view"
 };
-function render(_ctx, _cache, $props, $setup, $data, $options) {
-  return openBlock(), createBlock("div", _hoisted_1);
+function render$1(_ctx, _cache, $props, $setup, $data, $options) {
+  return openBlock(), createElementBlock("div", _hoisted_1$1);
 }
 
-script.render = render;
+script$1.render = render$1;
 
-var script$1 = /*#__PURE__*/defineComponent({
+var script = /*#__PURE__*/defineComponent({
   name: 'CommentCount',
   // vue component name
   props: {
@@ -134,30 +134,31 @@ var script$1 = /*#__PURE__*/defineComponent({
 
 });
 
-function render$1(_ctx, _cache, $props, $setup, $data, $options) {
-  return openBlock(), createBlock("span", {
+const _hoisted_1 = ["data-talk-id", "mode"];
+function render(_ctx, _cache, $props, $setup, $data, $options) {
+  return openBlock(), createElementBlock("span", {
     "data-talk-id": _ctx.id,
     mode: _ctx.mode
-  }, null, 8, ["data-talk-id", "mode"]);
+  }, null, 8, _hoisted_1);
 }
 
-script$1.render = render$1;
+script.render = render;
 
 /* eslint-disable import/prefer-default-export */
 
 var components = /*#__PURE__*/Object.freeze({
   __proto__: null,
-  Embed: script,
-  CommentCount: script$1
+  Embed: script$1,
+  CommentCount: script
 });
 
 // Import vue components
 
 const install = function installHyvorTalkVue(app) {
-  Object.entries(components).forEach(([componentName, component]) => {
+  Object.entries(components).forEach(_ref => {
+    let [componentName, component] = _ref;
     app.component(componentName, component);
   });
 }; // Create module definition for Vue.use()
 
-export default install;
-export { script$1 as CommentCount, script as Embed };
+export { script as CommentCount, script$1 as Embed, install as default };
