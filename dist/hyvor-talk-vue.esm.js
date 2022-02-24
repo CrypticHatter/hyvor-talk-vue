@@ -32,7 +32,7 @@ var script$1 = /*#__PURE__*/defineComponent({
     },
     title: {
       type: String,
-      default: document.title
+      default: window.document.title
     },
     loadMode: {
       type: String,

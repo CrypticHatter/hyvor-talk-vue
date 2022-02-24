@@ -85,7 +85,7 @@ function removeScript(id) {
     },
     title: {
       type: String,
-      default: document.title
+      default: window.document.title
     },
     loadMode: {
       type: String,

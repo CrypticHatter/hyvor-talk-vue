@@ -8,7 +8,7 @@ export default /*#__PURE__*/defineComponent({
     websiteId:{type:String,required:true},
     url:{type:String,default: false},
     id:{type:String,default: false},
-    title:{type:String,default:document.title},
+    title:{type:String,default:window.document.title},
     loadMode:{type:String,default:'default'},
     language:{type:String,default:null},
     sso:{type:String,default:null},
